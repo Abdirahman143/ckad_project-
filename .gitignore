@@ -1,0 +1,107 @@
+# Ignore sensitive files and secrets
+*.env
+*.secret
+*.key
+*.crt
+*.pem
+*.p12
+*.enc
+secrets.yaml
+config/secrets/*
+config/*.secret.yaml
+
+# Ignore Kubernetes-specific files
+*.kubeconfig
+.kube/
+.kube/cache/
+.kube/http-cache/
+.kube/config
+.kube/token
+*.token
+
+# Ignore IDE or editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Ignore Logs and Debug Files
+*.log
+logs/
+debug.log
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Ignore temporary and backup files
+*.bak
+*.backup
+*.tmp
+*.temp
+*.swp
+*~
+
+# Ignore Helm chart cache files
+charts/
+.helm/
+*.tgz
+*.lock
+
+# Ignore Terraform or infrastructure code state files
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Ignore Docker and Container-related files
+.dockerignore
+docker-compose.override.yml
+docker-compose.override.yaml
+docker-compose.yml.bak
+*.dockerfile
+Dockerfile~
+Dockerfile.backup
+
+# Ignore compiled or generated files
+*.class
+*.jar
+*.war
+*.pyc
+*.pyo
+*.exe
+*.out
+*.o
+*.so
+*.a
+*.dll
+
+# Ignore Kubernetes template rendering output
+rendered_templates/
+helm-output/
+manifests-output/
+
+# Ignore YAML linting cache
+.yamllint*
+
+# Ignore CI/CD Pipeline logs and artifacts
+ci-logs/
+pipeline-output/
+test-results/
+coverage/
+*.test.json
+node_modules/
+
+# Ignore personal environment configuration
+.env
+.env.local
+.env.*.local
+.envrc
+*.envrc
+
+# Ignore Kubernetes-specific cache or backups
+*.backup.yaml
+*.history.yaml
+*.swp
+.k8s_debug/
