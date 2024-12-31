@@ -1,0 +1,50 @@
+# Namespace Definition
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+  labels:
+    environment: development
+    team: development-team
+  annotations:
+    owner: devops-team@example.com
+    created-by: automation-script
+    description: "Namespace for development environment."
+
+---
+# ResourceQuota Definition
+apiVersion: v1
+kind: ResourceQuota
+metadata: 
+  name: dev-resource-quota
+  namespace: dev
+spec:
+  hard:
+    pods: "2"                      # Max number of pods
+    requests.cpu: "100m"           # Total CPU requests allowed
+    requests.memory: "256Mi"       # Total Memory requests allowed
+    limits.cpu: "200m"             # Total CPU limits allowed
+    limits.memory: "512Mi"         # Total Memory limits allowed
+
+---
+# LimitRange Definition
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: dev-limit-range
+  namespace: dev
+spec:
+  limits:
+  - type: Container                # Container-level limits
+    default:                       # Default resource limits
+      cpu: "500m"                  # 0.5 CPU core
+      memory: "1Gi"                # 1 GiB Memory
+    defaultRequest:                # Default resource requests
+      cpu: "250m"                  # 0.25 CPU core
+      memory: "512Mi"              # 512 MiB Memory
+    max:                           # Maximum resource limit
+      cpu: "1000m"                 # 1 CPU core
+      memory: "2Gi"                # 2 GiB Memory
+    min:                           # Minimum resource limit
+      cpu: "100m"                  # 0.1 CPU core
+      memory: "128Mi"              # 128 MiB Memory
